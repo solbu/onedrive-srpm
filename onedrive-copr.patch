@@ -1,0 +1,9 @@
+--- Makefile	2018-01-20 21:13:01.000000000 +0100
++++ Makefile-nogit	2018-02-09 15:05:46.115910024 +0100
+@@ -35,5 +35,3 @@
+ 	rm -f $(DESTDIR)$(PREFIX)/bin/onedrive
+ 	rm -f $(DESTDIR)/usr/lib/systemd/user/onedrive.service
+ 
+-version: .git/HEAD .git/index
+-	echo $(shell git describe --tags) >version
+\ No newline at end of file
