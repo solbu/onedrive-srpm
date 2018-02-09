@@ -4,11 +4,7 @@ srpm:
 	git clone https://github.com/skilion/onedrive.git
 	cp onedrive.spec onedrive
 	( cd onedrive ; make version )
-	echo "ls -l" ; ls -l
-	echo "ls -l onedrive"; ls -l onedrive
-	echo "rpkg -h"; rpkg -h
 	rpkg --path onedrive make-source 
-	tar cvf onedrive.tar onedrive/
 	cp onedrive-copr.patch onedrive
 	rpkg srpm --spec onedrive/onedrive.spec
 
