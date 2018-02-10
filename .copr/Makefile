@@ -1,6 +1,6 @@
 
 srpm:
-	#dnf install git make rpkg
+	dnf install git make rpkg
 	git clone https://github.com/skilion/onedrive.git
 	( cd onedrive ; make version )
 	cat onedrive.spec | sed -e "s/gitvers/$$(cat onedrive/version | sed s/v//)/" > onedrive/onedrive.spec
