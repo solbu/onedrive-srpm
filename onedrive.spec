@@ -13,25 +13,13 @@ Patch0: onedrive-copr.patch
 License: GPL
 Group: System Environment/Daemons
 Buildroot: /var/tmp/%{name}-%{version}-%{release}-root
-Requires: libcurl sqlite
 BuildRequires: ldc sqlite-devel libcurl-devel
+Requires: libcurl sqlite
+Requires(post): systemd
+Requires(preun): systemd 
 
 %description
 A complete tool to interact with OneDrive on Linux. Built following the UNIX philosophy.
-Features:
-
-    State caching
-    Real-Time file monitoring with Inotify
-    Resumable uploads
-    Support OneDrive for Business (part of Office 365)
-    Shared folders (not Business)
-
-What's missing:
-
-    While local changes are uploaded right away, remote changes are delayed
-    No GUI
-
-
 
 %prep
 %setup -q
@@ -47,7 +35,8 @@ install -D -m 644 onedrive.service %{buildroot}/usr/lib/systemd/user/onedrive.se
 
 
 %files
-%doc CHANGELOG.md LICENSE README.md
+%doc CHANGELOG.md LICENSE README.md config
+%license LICENSE
 %defattr(-,root,root)
 %attr(555,bin,bin) /usr/bin/onedrive
 %attr(555,bin,bin) /usr/lib/systemd/user/onedrive.service
@@ -56,6 +45,9 @@ install -D -m 644 onedrive.service %{buildroot}/usr/lib/systemd/user/onedrive.se
 rm -rf $RPM_BUILD_ROOT
 
 %changelog
+* Sat Feb 10 2018 Patrick Pichon <patrick@pichon.me>
+add config file, and few addition prerequisites
+
 * Fri Feb 9 2018 Patrick Pichon <patrick@pichon.me>
 ready for Copr
 
