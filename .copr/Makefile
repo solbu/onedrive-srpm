@@ -6,7 +6,7 @@ srpm:
 	( cd onedrive ; make version )
 	rpkg --path onedrive make-source 
 	cp onedrive-copr.patch onedrive
-	rpkg srpm --spec onedrive/onedrive.spec
+	rpkg srpm --spec onedrive/onedrive.spec --outdir $(outdir)
 
 
 clean: 
