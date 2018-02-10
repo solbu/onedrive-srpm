@@ -1,6 +1,6 @@
 %define name onedrive
 %define debug_package %{nil}
-%define version 1.1.1
+%define version gitvers
 %define release 1
 
 Summary: A complete tool to interact with OneDrive on Linux. Built following the UNIX philosophy.

@@ -1,9 +1,9 @@
 
 srpm:
-	dnf install git make rpkg
+	#dnf install git make rpkg
 	git clone https://github.com/skilion/onedrive.git
-	cp onedrive.spec onedrive
 	( cd onedrive ; make version )
+	cat onedrive.spec | sed -e "s/gitvers/$$(cat onedrive/version | sed s/v//)/" > onedrive/onedrive.spec
 	rpkg --path onedrive make-source 
 	cp onedrive-copr.patch onedrive
 	rpkg srpm --spec onedrive/onedrive.spec --outdir $(outdir)
