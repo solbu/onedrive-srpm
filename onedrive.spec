@@ -1,25 +1,25 @@
-%define name onedrive
-%define debug_package %{nil}
-%define version gitvers
-%define release 1
+%define          name onedrive
+%define          debug_package %{nil}
+%define          version gitvers
+%define          release 1
 
-Summary: A complete tool to interact with OneDrive on Linux. Built following the UNIX philosophy.
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Vendor: Patrick Pichon <patrick@pichon.me>
-Source: https://github.com/skilion/onedrive.tar
-Patch0: onedrive-copr.patch
-License: GPL
-Group: System Environment/Daemons
-Buildroot: /var/tmp/%{name}-%{version}-%{release}-root
-BuildRequires: ldc
-BuildRequires: sqlite-devel
-BuildRequires: libcurl-devel
-Requires: libcurl
-Requires: sqlite
-Requires(post): systemd
-Requires(preun): systemd 
+Summary:         A complete tool to interact with OneDrive on Linux. Built following the UNIX philosophy.
+Name:            %{name}
+Version:         %{version}
+Release:         %{release}
+Vendor:          Patrick Pichon <patrick@pichon.me>
+Source:          https://github.com/skilion/onedrive.tar
+Patch0:          onedrive-copr.patch
+License:         GPL
+Group:           System Environment/Daemons
+Buildroot:       /var/tmp/%{name}-%{version}-%{release}-root
+BuildRequires:   ldc
+BuildRequires:   sqlite-devel
+BuildRequires:   libcurl-devel
+Requires:        libcurl
+Requires:        sqlite
+Requires(post):  systemd
+Requires(preun): systemd
 
 %description
 A complete tool to interact with OneDrive on Linux. Built following the UNIX philosophy.
