@@ -13,8 +13,11 @@ Patch0: onedrive-copr.patch
 License: GPL
 Group: System Environment/Daemons
 Buildroot: /var/tmp/%{name}-%{version}-%{release}-root
-BuildRequires: ldc sqlite-devel libcurl-devel
-Requires: libcurl sqlite
+BuildRequires: ldc
+BuildRequires: sqlite-devel
+BuildRequires: libcurl-devel
+Requires: libcurl
+Requires: sqlite
 Requires(post): systemd
 Requires(preun): systemd 
 
